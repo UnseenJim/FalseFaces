@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/acb1lax.css">
+<!-- Favicon (modern SVG + PNG fallbacks) -->
+<link rel="icon" type="image/svg+xml" href="/images/HandDrawnLogo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/Logo32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/Logo16.png">
+
+<!-- iOS home screen -->
+<link rel="apple-touch-icon" href="/images/Logo180.png">
+
   </head>
 <body class="splash-page">
 
@@ -13,13 +21,14 @@
     <main>
       <img src="/images/LogoOverDark.png" alt="False Faces Logo" width="300">
 
-<p>I am a mask-maker and performer. I trained in traditional leather mask-making with Sarah Sartori and Paola Piizi at the Sartori Museum in Italy, and with Stefano Perocco di Meduna at A.I.D.A.S. in Versailles. I have also trained in theatrical mask performance at Ecole Jacques Lecoq, with Carlo Boso, with Antonio Fava, and in the UK with John Wright and Peta Lily. Having training and experience in both the construction and the use of masks is essential for the design and manufacture of theatrical masks which are functional on stage.</p>
+<h2>Theatre and Folk Masks from the New Forest</h2>
+<p>False Faces is an artisanal mask studio, creating sculptural masks for theatre. Each mask is hand-crafted in leather or via hybrid craft-and-digital processes, designed first and foremost as a functional object for the stage.</p>
 
-<p>I am available for mask commissions, and very happy to discuss your requirements. While I have the designs below available, each mask is unique, hand-made and varies slightly from the designs shown (unless stated otherwise).</p>
+<p>My practice is rooted equally in craft and play. I trained in physical theatre and mask-making in the Commedia dell’Arte tradition with leading authorities including École Jacques Lecoq, Carlo Boso, Antonio Fava, Sarah Sartori and Paola Piizi at the Sartori Museum, and Stefano Perocco di Meduna at A.I.D.A.S. de Versailles.</p>
 
-<p>I am also offering workshops on mask-making and mask performance for both adults and children.</p>
+<p>As a proud member of the New Forest Marque, I draw on the folklore, history, landscapes and wildlife of the New Forest, and use local materials wherever possible.</p>
 
-<p>For any enquiries, please contact falsefacesmasks@gmail.com.</p>
+<p>Drop me a message at falsefacesmasks@gmail.com to discuss purchases, commissions or workshops.</p>
 
 <section class="projects-grid">
 
@@ -53,8 +62,43 @@
         </a>
       </div>
 <footer class="site-footer">
-      <p>Unseen Things, Lyndhurst, England, United Kingdom</p>
-      <p>&copy;2025 Unseen Things</p>
+      <p>False Faces, Lyndhurst, England, United Kingdom</p>
+      <p>&copy;2025 False Faces</p>
     </footer>
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const lightboxCaption = document.querySelector(".lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.innerHTML =
+        `<h3>${img.dataset.title}</h3><p>${img.dataset.description}</p>`;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // Close when clicking outside the image
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  // Close with Esc key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+
   </body>
 </html>
