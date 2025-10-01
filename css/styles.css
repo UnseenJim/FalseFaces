@@ -550,3 +550,10 @@ h3 {
 .lightbox .close:hover {
   color: #dab400; /* mustard accent */
 }
+
+/* Links inside body text */
+.content-wrapper a {
+  color: #dab400;          /* mustard yellow (or another accent) */
+  text-decoration: underline;
+  font-weight: 500;
+}
