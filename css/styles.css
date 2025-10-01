@@ -403,6 +403,10 @@ h3 {
   display: block;         /* makes whole link act like a block */
 }
 
+.project-card-link .caption {
+  text-decoration: none;   /* make sure captions never get underlined */
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -554,6 +558,6 @@ h3 {
 /* Links inside body text */
 .content-wrapper a {
   color: #dab400;          /* mustard yellow (or another accent) */
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 500;
 }
