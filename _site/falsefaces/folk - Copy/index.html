@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/acb1lax.css">
+<!-- Favicon (modern SVG + PNG fallbacks) -->
+<link rel="icon" type="image/svg+xml" href="/images/HandDrawnLogo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/Logo32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/Logo16.png">
+
+<!-- iOS home screen -->
+<link rel="apple-touch-icon" href="/images/Logo180.png">
+
+  </head>
+<body class="">
+
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="/"><img src="/images/DrawnOverDark.png" alt="Logo" width="300" height="300" /></a>
+    </div>
+    <div class="nav-center">
+      <a href="/" class="home-link">false faces</a>
+    </div>
+    <div class="nav-right">
+      <div class="dropdown-nav">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">☰ Menu</label>
+        <ul class="nav-links">
+          
+            <li><a href="/">Home</a></li>
+          
+          
+            <li><a href="/falsefaces/masks">Masks</a></li>
+          
+          
+            <li><a href="/falsefaces/puppets">Puppets</a></li>
+          
+          
+            <li><a href="/falsefaces/punchandjudy">Punch &amp; Judy</a></li>
+          
+ 	  
+            <li><a href="/falsefaces/process">Techniques &amp; Materials</a></li>
+          
+          <li><a href="http://www.unseenthings.co.uk">Unseen Things</a></li>
+          
+                    
+            <li><a href="/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="content-wrapper">
+    <main>
+      
+<h1>Folk &amp; Festival</h1>
+<p>More coming soon</p>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="/images/masks/Mawk.jpg" alt="Mawk Masks"
+         data-title="Mawk" 
+         data-description="Flippable masks based on the Basel/larval mask.">
+    <p class="caption">Mawk Masks</p>
+  </div>
+  
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="">
+  <div class="lightbox-caption"></div>
+</div>
+</div>
+
+    </main>
+</div>
+    
+      <div class="social-icons">
+                <a href="http://www.instagram.com/falsefacesmasks" target="_blank" aria-label="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://www.youtube.com/@falsefacesmasks" target="_blank" aria-label="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
+        </a>
+	<a href="https://www.facebook.com/falsefacesmasks" target="_blank" aria-label="Facebook">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="YouTube" />
+        </a>
+      </div>
+<footer class="site-footer">
+      <p>False Faces, Lyndhurst, England, United Kingdom</p>
+      <p>&copy;2025 False Faces</p>
+    </footer>
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const lightboxCaption = document.querySelector(".lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.innerHTML =
+        `<h3>${img.dataset.title}</h3><p>${img.dataset.description}</p>`;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // Close when clicking outside the image
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  // Close with Esc key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+
+  </body>
+</html>

@@ -189,9 +189,11 @@ h3 {
 
 .nav-toggle {
   display: none;
+
 }
 
 .nav-toggle-label {
+  font-family: headline-gothic-atf-rough-n2, sans-serif;
   display: inline-block;
   color: #d6d0b5;
   font-weight: bold;
