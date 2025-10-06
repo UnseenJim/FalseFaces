@@ -127,5 +127,73 @@
   });
 </script>
 
+<!-- === Lightbox (shared across all pages) === -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>  <!-- Left arrow -->
+  <img class="lightbox-img" src="" alt="">
+  <span class="next">&#10095;</span>  <!-- Right arrow -->
+  <p class="lightbox-caption"></p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const caption = document.querySelector('.lightbox-caption');
+    const closeBtn = document.querySelector('.close');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const img = galleryItems[index];
+      lightboxImg.src = img.src;
+      caption.textContent = img.dataset.description || '';
+      currentIndex = index;
+    }
+
+    galleryItems.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        showImage(index);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      showImage(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      showImage(currentIndex);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') nextBtn.click();
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'Escape') closeBtn.click();
+    });
+
+    // Swipe gestures for mobile
+    let startX = 0;
+    lightbox.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX));
+    lightbox.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) prevBtn.click();  // swipe right
+      if (startX - endX > 50) nextBtn.click();  // swipe left
+    });
+  });
+</script>
+
+
   </body>
 </html>

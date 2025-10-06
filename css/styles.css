@@ -191,7 +191,7 @@ h3 {
   background-color: #000;       /* black background */
   color: #d6d0b5;                 
   border-left: 4px solid #900000; /* keep red accent */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0.6,0,0,0);
   border-radius: 8px;
   text-align: centre;
 }
@@ -489,9 +489,9 @@ h3 {
   background-color: #111;        /* dark card background */
   color: #d6d0b5;
   padding: 1.5rem;
-  border-left: 4px solid #d01111; /* mustard yellow accent */
+  border-left: 4px solid #d01111; /* red accent */
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 8px rgba(0.6,0,0,0);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
   height: 100%;
@@ -499,14 +499,14 @@ h3 {
 
 .project-card h2 {
   margin-top: 0;
-  color: #d01111; /* mustard */
+  color: #d01111; /* red */
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 14px rgba(0.6,0,0,0),
-              0 0 12px rgba(218, 0, 0, 0.2); /* mustard glow */
-  border-left-color: #e41111; /* brighter mustard */
+              0 0 12px rgba(218, 0, 0, 0.2); /* red glow */
+  border-left-color: #e41111; /* brighter red */
 }
 
 .project-card p {
@@ -530,9 +530,9 @@ h3 {
   background-color: #111;        /* dark background */
   color: #d6d0b5;
   padding: 1.5rem;
-  border-left: 4px solid #d01111; /* mustard accent */
+  border-left: 4px solid #d01111; /* red accent */
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px rgba(0.6,0,0,0);
   text-align: center;
   transition: none;              /* no hover effect */
 }
@@ -546,6 +546,49 @@ h3 {
   font-size: 0.95rem;
 }
 
+/* === Call-to-Action Card (linked version) === */
+.cta-card-link {
+  display: block;
+  background-color: #111;
+  color: #d6d0b5;
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem auto;
+  max-width: 500px;             /* desktop width cap */
+  text-align: center;
+  text-decoration: none;        /* remove link underline */
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Make sure text inherits link colour and doesn’t underline */
+.cta-card-link h2  {
+  color: #d01111;
+  margin: 0.3rem 0;
+}
+
+.cta-card-link p {
+  color: #d6d0b5;
+  margin: 0.3rem 0;
+}
+
+/* Hover glow – subtle red tone (Finding Folklore style) */
+.cta-card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0.6,0,0,0),
+              0 0 12px rgba(218, 0, 0, 0.2); /* red glow */
+  color: #d01111;
+}
+
+/* Responsive: full width on mobile */
+@media (max-width: 700px) {
+  .cta-card-link {
+    max-width: 90%;  /* fills most of the screen on small devices */
+    margin: 1rem auto;
+  }
+}
+
+
 /* === Gallery === */
 .gallery {
   display: grid;
@@ -558,14 +601,14 @@ h3 {
   background-color: #111;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 8px rgba(0.6,0,0,0);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.6),
-              0 0 12px rgba(218, 180, 0, 0.6); /* mustard glow */
+  box-shadow: 0 6px 14px rgba(0.6,0,0,0),
+              0 0 12px rgba(218, 0, 0, 0.2); /* red glow */
 }
 
 .gallery-item img {
@@ -611,7 +654,7 @@ h3 {
   object-fit: contain;
   margin-bottom: 1rem;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  box-shadow: 0 4px 12px rgba(0.6,0,0,0);
 }
 
 .lightbox-caption {
@@ -660,9 +703,41 @@ h3 {
   }
 }
 
+/* Lightbox navigation arrows */
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: #d6d0b5;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  color: #d01111;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox .prev { left: 1rem; }
+.lightbox .next { right: 1rem; }
+
+@media (max-width: 700px) {
+  .lightbox .prev,
+  .lightbox .next {
+    font-size: 2.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+
 /* Links inside body text */
 .content-wrapper a {
-  color: #d01111;          /* mustard yellow (or another accent) */
+  color: #d01111;          /* red */
   text-decoration: none;
   font-weight: 500;
 }
