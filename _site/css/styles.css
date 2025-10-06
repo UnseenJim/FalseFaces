@@ -105,11 +105,77 @@ h3 {
   width: 100%;
   background-color: #000;
   color: #d6d0b5;
-  text-align: center;
-  padding: 2em 1em;
+  padding: 2em 2em;
   margin-top: 3em;
-  width: 100%;
+  box-sizing: border-box;
 }
+
+/* Three-column flex container */
+.site-footer .footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* even left/center/right spacing */
+  text-align: center;
+  padding: 0 3rem; /* keeps breathing room from browser edge */
+  box-sizing: border-box;
+}
+
+/* Empty left spacer for true centering symmetry */
+.site-footer .footer-left {
+  flex: 0.7;
+}
+
+/* Center block */
+.site-footer .footer-center {
+  flex: 3;
+  text-align: center;
+}
+
+/* Right block: logo + text stacked and centered within their own space */
+.site-footer .footer-right {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: -3.5rem;
+}
+
+/* Logo + tagline */
+.marque-logo {
+  width: 60px;
+  height: auto;
+  margin: 0 auto 0.1rem auto;
+}
+
+.marque-text {
+  font-size: 0.7rem;
+  color: #d6d0b5;
+  font-variant: small-caps;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Mobile stacking */
+@media (max-width: 700px) {
+  .site-footer .footer-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .site-footer .footer-left {
+    display: none;
+  }
+
+  .site-footer .footer-right {
+    margin-top: 1rem;
+  }
+}
+
 
 .content-wrapper {
   max-width: 800px;
@@ -548,6 +614,27 @@ h3 {
 
 .lightbox .close {
   position: absolute;
+.lightbox-caption {
+  color: #d6d0b5;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  max-width: 90vw;
+}
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .lightbox-img {
+    max-width: 95vw;
+    max-height: 75vh;
+  }
+
+  .lightbox-caption {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
   top: 1rem;
   right: 2rem;
   color: #d6d0b5;
