@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/acb1lax.css">
+<!-- Favicon (modern SVG + PNG fallbacks) -->
+<link rel="icon" type="image/svg+xml" href="/images/HandDrawnLogo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/Logo32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/Logo16.png">
+
+<!-- iOS home screen -->
+<link rel="apple-touch-icon" href="/images/Logo180.png">
+
+  </head>
+<body class="">
+
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="/"><img src="/images/DrawnOverDark.png" alt="Logo" width="300" height="300" /></a>
+    </div>
+    <div class="nav-center">
+      <a href="/" class="home-link">false faces</a>
+    </div>
+    <div class="nav-right">
+      <div class="dropdown-nav">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">☰ Menu</label>
+        <ul class="nav-links">
+          
+            <li><a href="/">Home</a></li>
+          
+          
+            <li><a href="/masks">Masks</a></li>
+          
+          
+            <li><a href="/puppets">Puppets</a></li>
+          
+          
+            <li><a href="/punchandjudy">Punch &amp; Judy</a></li>
+          
+ 	  
+            <li><a href="/process">Techniques &amp; Materials</a></li>
+          
+          <li><a href="http://www.unseenthings.co.uk">Unseen Things</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="content-wrapper">
+    <main>
+      
+<h1>Forest Pantalone</h1>
+
+<div class="gallery">
+    <div class="gallery-item">
+    <img src="/images/masks/Commedia/PantaloneLeather.jpg" alt="Pantalone"
+         data-title="Pantalone (Forest)" 
+         data-description="The old merchant. Leather mask">
+    <p class="caption">Forest Pantalone - Leather</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="/images/masks/Commedia/Pantalone3D.jpg" alt="Pantalone3D"
+         data-title="Pantalone (Forest) - 3D printed" 
+         data-description="The old merchant. 3D printed mask">
+    <p class="caption">Forest Pantalone - 3D Printed</p>
+  </div>
+
+ <div class="gallery-item">
+    <img src="/images/masks/Commedia/PantaloneHybrid.jpg" alt="ForestPantaloneHybrid"
+         data-title="Pantalone (Forest) - Leather Hybrid" 
+         data-description="The old merchant. Leather mask made with a 3D printed matrix">
+    <p class="caption">Forest Pantalone - Leather</p>
+  </div>
+
+</div>
+<h2>
+<a href="/commedia">
+Back
+</a>
+</h2>
+
+
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="">
+  <div class="lightbox-caption"></div>
+</div>
+</div>
+
+    </main>
+</div>
+    
+      <div class="social-icons">
+                <a href="http://www.instagram.com/falsefacesmasks" target="_blank" aria-label="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://www.youtube.com/@falsefacesmasks" target="_blank" aria-label="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
+        </a>
+	<a href="https://www.facebook.com/falsefacesmasks" target="_blank" aria-label="Facebook">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="YouTube" />
+        </a>
+      </div>
+<footer class="site-footer">
+<div class="footer-content">
+<div class="footer-left"></div> <!-- spacer to keep text optically centered -->
+
+  <div class="footer-center">
+    <p>False Faces, Lyndhurst, England, United Kingdom - &#106;&#97;&#109;&#101;&#115;&#64;&#102;&#97;&#108;&#115;&#101;&#102;&#97;&#99;&#101;&#115;&#46;&#99;&#111;&#46;&#117;&#107;</p>
+    <p>&copy; 2025 False Faces</p>
+  </div>
+
+  <div class="footer-right">
+    <a href="https://newforestmarque.co.uk/inspired/" target="_blank" rel="noopener noreferrer">
+      <img src="/images/MarqueInspiredLogo.png" alt="New Forest Marque Inspired" class="marque-logo">
+    </a>
+    <p class="marque-text">Uniquely local<br>to the New Forest</p>
+  </div>
+</div>
+    </footer>
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const lightboxCaption = document.querySelector(".lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.innerHTML =
+        `<h3>${img.dataset.title}</h3><p>${img.dataset.description}</p>`;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // Close when clicking outside the image
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  // Close with Esc key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+
+<!-- === Lightbox (shared across all pages) === -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>  <!-- Left arrow -->
+  <img class="lightbox-img" src="" alt="">
+  <span class="next">&#10095;</span>  <!-- Right arrow -->
+  <p class="lightbox-caption"></p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const caption = document.querySelector('.lightbox-caption');
+    const closeBtn = document.querySelector('.close');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const img = galleryItems[index];
+      lightboxImg.src = img.src;
+      caption.textContent = img.dataset.description || '';
+      currentIndex = index;
+    }
+
+    galleryItems.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        showImage(index);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      showImage(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      showImage(currentIndex);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') nextBtn.click();
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'Escape') closeBtn.click();
+    });
+
+    // Swipe gestures for mobile
+    let startX = 0;
+    lightbox.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX));
+    lightbox.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) prevBtn.click();  // swipe right
+      if (startX - endX > 50) nextBtn.click();  // swipe left
+    });
+  });
+</script>
+
+
+  </body>
+</html>

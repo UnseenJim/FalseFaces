@@ -555,6 +555,32 @@ h3 {
   font-size: 0.95rem;
 }
 
+.mask-card {
+  background-color: #111;        /* dark card background */
+  color: #d6d0b5;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0.6,0,0,0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.mask-card h2 {
+  margin-top: 0;
+  color: #d01111; /* red */
+}
+
+.mask-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0.6,0,0,0),
+              0 0 12px rgba(218, 0, 0, 0.2); /* red glow */
+  border-left-color: #e41111; /* brighter red */
+}
+
+.mask-card p {
+  font-size: 0.95rem;
+}
+
 /* === Call-to-Action Card (linked version) === */
 .cta-card-link {
   display: block;
