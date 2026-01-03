@@ -55,27 +55,42 @@
     <main>
       
 <h1>Neutral Mask C Design</h1>
+<p>Neutral C is slightly more complex than the others with defined brow and a central ridge to the nose. The standard size is large (14.5cm across the cheekbones, 20cm brow to chin). As with all the masks, resizing and some alterations can be done on request - just let me know what you're looking for. This mask is priced at £150 for 3D printed and £350 for leather. </p>
+<p>Click the images to enlarge and see other angles.</p>
+
 
 <div class="gallery">
   <div class="gallery-item">
-    <img src="/images/masks/Neutrals/Ci.jpg" alt="Neutral Ci"
-         data-title="Ci" 
-         data-description="Neutral Ci">
-    <p class="caption">Neutral C in Linden wood-filled filament</p>
+   <img
+      src="/images/masks/Neutrals/Ci.jpg"
+      alt="Neutral C (Ci)"
+      data-lightbox="neutral-ci"
+      data-images="/images/masks/Neutrals/Ci.jpg,/images/masks/Neutrals/Ci2.jpg,/images/masks/Neutrals/Ci3.jpg,/images/masks/Neutrals/Ci4.jpg,/images/masks/Neutrals/Ci5.jpg,/images/masks/Neutrals/Ci6.jpg"
+        data-description="Neutral C in light wood-filled filament"
+    >
+    <p class="caption">Neutral C in light wood-filled filament</p>
   </div>
 
-   <div class="gallery-item">
-    <img src="/images/masks/Neutrals/Cii.jpg" alt="Neutral Cii"
-         data-title="Cii" 
-         data-description="Neutral Cii">
-    <p class="caption">Neutral C in Chocolate Brown wood-filled filament</p>
+  <div class="gallery-item">
+   <img
+      src="/images/masks/Neutrals/Cii.jpg"
+      alt="Neutral C (Cii)"
+      data-lightbox="neutral-cii"
+      data-images="/images/masks/Neutrals/Cii.jpg,/images/masks/Neutrals/Cii2.jpg,/images/masks/Neutrals/Cii3.jpg,/images/masks/Neutrals/Cii4.jpg,/images/masks/Neutrals/Cii5.jpg"
+        data-description="Neutral C in dark wood-filled filament"
+    >
+    <p class="caption">Neutral C in dark wood-filled filament</p>
   </div>
 
-   <div class="gallery-item">
-    <img src="/images/masks/Neutrals/Ciii.jpg" alt="Neutral Ciii"
-         data-title="Ciii" 
-         data-description="Neutral Ciii">
-    <p class="caption">Neutral C in Linden wood-filled filament</p>
+    <div class="gallery-item">
+   <img
+      src="/images/masks/Neutrals/Ciii.jpg"
+      alt="Neutral C (Ciii)"
+      data-lightbox="neutral-ciii"
+      data-images="/images/masks/Neutrals/Ciii.jpg,/images/masks/Neutrals/Ciii2.jpg,/images/masks/Neutrals/Ciii3.jpg,/images/masks/Neutrals/Ciii4.jpg,/images/masks/Neutrals/Ciii5.jpg,/images/masks/Neutrals/Ciii6.jpg"
+        data-description="Neutral C in light wood-filled filament"
+    >
+    <p class="caption">Neutral C in light wood-filled filament</p>
   </div>
 
 </div>
@@ -87,13 +102,6 @@ Back
 </h2>
 
  
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <span class="close">&times;</span>
-  <img class="lightbox-img" src="" alt="">
-  <div class="lightbox-caption"></div>
-</div>
-</div>
 
     </main>
 </div>
@@ -126,108 +134,119 @@ Back
   </div>
 </div>
     </footer>
-<script>
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.querySelector(".lightbox-img");
-  const lightboxCaption = document.querySelector(".lightbox-caption");
-  const closeBtn = document.querySelector(".lightbox .close");
-
-  document.querySelectorAll(".gallery-item img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.innerHTML =
-        `<h3>${img.dataset.title}</h3><p>${img.dataset.description}</p>`;
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  // Close when clicking outside the image
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
-  });
-
-  // Close with Esc key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.style.display = "none";
-    }
-  });
-</script>
 
 <!-- === Lightbox (shared across all pages) === -->
-<div class="lightbox" id="lightbox">
-  <span class="close">&times;</span>
-  <span class="prev">&#10094;</span>  <!-- Left arrow -->
-  <img class="lightbox-img" src="" alt="">
-  <span class="next">&#10095;</span>  <!-- Right arrow -->
-  <p class="lightbox-caption"></p>
-</div>
-
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.querySelector('.lightbox-img');
-    const caption = document.querySelector('.lightbox-caption');
-    const closeBtn = document.querySelector('.close');
-    const nextBtn = document.querySelector('.next');
-    const prevBtn = document.querySelector('.prev');
-    let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return;
 
-    function showImage(index) {
-      const img = galleryItems[index];
-      lightboxImg.src = img.src;
-      caption.textContent = img.dataset.description || '';
-      currentIndex = index;
-    }
+  const lightboxImg = lightbox.querySelector(".lightbox-img");
+  const captionEl = lightbox.querySelector(".lightbox-caption");
+  const closeBtn = lightbox.querySelector(".close");
+  const nextBtn = lightbox.querySelector(".next");
+  const prevBtn = lightbox.querySelector(".prev");
+  const thumbsEl = lightbox.querySelector(".lightbox-thumbs");
 
-    galleryItems.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        lightbox.classList.add('active');
-        showImage(index);
-      });
+  let images = [];
+  let currentIndex = 0;
+
+  function setActiveThumb(index) {
+    if (!thumbsEl) return;
+    thumbsEl.querySelectorAll(".lightbox-thumb").forEach((btn, i) => {
+      btn.classList.toggle("is-active", i === index);
+    });
+  }
+
+  function showImage(index) {
+    if (!images.length) return;
+    currentIndex = (index + images.length) % images.length;
+
+    const src = images[currentIndex];
+    lightboxImg.src = src;
+    setActiveThumb(currentIndex);
+  }
+
+  function buildThumbs() {
+    if (!thumbsEl) return;
+    thumbsEl.innerHTML = "";
+
+    images.forEach((src, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lightbox-thumb";
+      btn.innerHTML = `<img src="${src}" alt="Thumbnail ${i+1}">`;
+      btn.addEventListener("click", () => showImage(i));
+      thumbsEl.appendChild(btn);
     });
 
-    closeBtn.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
+    setActiveThumb(currentIndex);
+  }
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % galleryItems.length;
-      showImage(currentIndex);
-    });
+  function openLightbox(startIndex = 0, description = "") {
+    captionEl.textContent = description || "";
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
+    showImage(startIndex);
+    buildThumbs();
+  }
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-      showImage(currentIndex);
-    });
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'ArrowRight') nextBtn.click();
-      if (e.key === 'ArrowLeft') prevBtn.click();
-      if (e.key === 'Escape') closeBtn.click();
-    });
+  // Click handler: any element with data-images opens as a “gallery set”
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest("img[data-images]");
+    if (!img) return;
 
-    // Swipe gestures for mobile
-    let startX = 0;
-    lightbox.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX));
-    lightbox.addEventListener('touchend', (e) => {
-      const endX = e.changedTouches[0].clientX;
-      if (endX - startX > 50) prevBtn.click();  // swipe right
-      if (startX - endX > 50) nextBtn.click();  // swipe left
-    });
+    const raw = img.dataset.images || "";
+    images = raw.split(",").map(s => s.trim()).filter(Boolean);
+
+    // fall back: if someone forgets data-images, just open the clicked image
+    if (!images.length && img.src) images = [img.src];
+
+    const startSrc = img.getAttribute("src");
+    const start = Math.max(0, images.indexOf(startSrc));
+    const desc = img.dataset.description || img.alt || "";
+
+    openLightbox(start, desc);
   });
+
+  closeBtn?.addEventListener("click", closeLightbox);
+
+  // Clicking the dark backdrop closes
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  nextBtn?.addEventListener("click", () => showImage(currentIndex + 1));
+  prevBtn?.addEventListener("click", () => showImage(currentIndex - 1));
+
+  // Keyboard nav
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+  });
+});
 </script>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <span class="close" aria-label="Close">&times;</span>
+  <span class="prev" aria-label="Previous">&#10094;</span>
+  <span class="next" aria-label="Next">&#10095;</span>
 
+  <div class="lightbox-inner">
+    <img class="lightbox-img" src="" alt="">
+    <div class="lightbox-caption"></div>
+
+    <!-- filmstrip goes here -->
+    <div class="lightbox-thumbs" aria-label="More images"></div>
+  </div>
+</div>
   </body>
 </html>

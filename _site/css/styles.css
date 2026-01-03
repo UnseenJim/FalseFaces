@@ -717,6 +717,45 @@ h3 {
   color: #d01111;
 }
 
+.lightbox-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 8px 10px;
+  max-width: min(900px, 92vw);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.lightbox-thumb {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: transparent;
+  padding: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.lightbox-thumb img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.lightbox-thumb.is-active {
+  outline: 2px solid rgba(255,255,255,0.65);
+  outline-offset: 2px;
+}
+
+
 /* === Mobile adjustments === */
 @media (max-width: 700px) {
   .lightbox {
