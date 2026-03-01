@@ -4,6 +4,8 @@ To get the right file:
 cd C:\Users\jimmy\Documents\Syncthing\Work Transfer\Websites\unseenthings-site
 cd C:\Users\jimmy\Documents\Syncthing\Work Transfer\Websites\findingfolklore-site
 cd C:\Users\jimmy\Documents\Syncthing\Work Transfer\Websites\falsefaces-site
+cd /d "E:\Syncthing\Work Transfer\Websites\falsefaces-site"
+
 To run eleventy: npx eleventy
 
 
